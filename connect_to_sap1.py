@@ -33,10 +33,12 @@ conn = dbapi.connect(
 )
 #If no errors, print connected
 print('connected')
-
+print(conn.getaddress())
+print(conn.getclientinfo())
 cursor = conn.cursor()
 sql_command = "select TITLE, FIRSTNAME, NAME from KIRAN_SCHEME.CUSTOMER;"
 cursor.execute(sql_command)
+print(cursor.description_ext())
 rows = cursor.fetchall()
 for row in rows:
     for col in row:
